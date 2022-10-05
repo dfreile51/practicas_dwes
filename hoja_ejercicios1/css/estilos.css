@@ -1,0 +1,17 @@
+table {
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+td, th {
+    border: 1px solid black;
+    padding: 4px 10px;
+}
+
+th {
+    text-align: center;
+}
+
+tr {
+    text-align: left;
+}

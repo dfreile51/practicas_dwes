@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <h1>Datos del Usuario</h1>
+    <hr/>
+    <br/><br/>
+    <form action="php/programa.php" method="post">
+        <label for="artA">Número de Artículos A: </label>
+        <input type="number" name="artA" id="artA" placeholder="Número de Artículos A"/>
+        <br/><br/>
+        <label for="artB">Número de Artículos B: </label>
+        <input type="number" name="artB" id="artB" placeholder="Número de Artículos B"/>
+        <br/><br/>
+        <label for="artC">Número de Artículos C: </label>
+        <input type="number" name="artC" id="artC" placeholder="Número de Artículos C"/>
+        <br/><br/>
+        <input type="submit" value="Enviar" name="enviar" id="enviar"/>
+        <input type="reset" value="Borrar" name="borrar" id="borrar"/>
+    </form>
+</body>
+</html>

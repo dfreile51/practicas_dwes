@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Datos de Usuario</h1>
+    <hr/>
+    <br/><br/>
+    <form action="php/programa.php" method="post">
+        <label for="nombre">Número: </label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre de Usuario"/>
+        <br/><br/>
+        <label for="nombre">Apellidos: </label>
+        <input type="text" name="apellidos" id="apellidos" placeholder="Apellidos del Usuario"/>
+        <br/><br/>
+        <label for="intereses">Intereses: </label>
+        <input type="checkbox" name="tecno" id="tecno">
+        <label for="tecno">Tecnología: </label>
+        <input type="checkbox" name="depor" id="depor">
+        <label for="depor">Deporte: </label>
+        <input type="checkbox" name="ciencia" id="ciencia">
+        <label for="cinecia">Ciencia: </label>
+        <br/><br/>
+        <input type="submit" value="Enviar" name="enviar" id="enviar"/>
+        <input type="reset" value="Borrar" name="borrar" id="borrar"/>
+    </form>
+</body>
+</html>

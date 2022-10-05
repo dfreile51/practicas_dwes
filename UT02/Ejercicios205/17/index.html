@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/estilos.css">
+    <title>Configuracion del PC</title>
+</head>
+<body>
+    <h1>Configure su PC</h1>
+    <form action="php/programa.php" method="post">
+        <table class="primeraTabla">
+            <tr>
+                <td class="tdPrimeraTabla">Placa Base</td>
+                <td class="tdPrimeraTabla">
+                    <select name="placasBase" id="placasBase" class="select">
+                        <option value="placa1">Gigabyte B450M DS3H(60€)</option>
+                        <option value="placa2">MSI H510M PRO-E(74€)</option>
+                        <option value="placa3">Asus TUF GAMING B550-PLUS WIFI II(179€)</option>
+                        <option value="placa4">Asus PRIME B560M-K(97€)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdPrimeraTabla">Procesador</td>
+                <td class="tdPrimeraTabla">
+                    <select name="procesadores" id="procesadores" class="select">
+                        <option value="proce1">Intel Core i5-11400F 2.6 GHz(170€)</option>
+                        <option value="proce2">AMD Ryzen 5 5600X 3.7GHz(230€)</option>
+                        <option value="proce3">Intel Core i5-12400F 4.4 GHz(230€)</option>
+                        <option value="proce4">AMD Ryzen 7 5800X 3.8GHz(330€)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdPrimeraTabla">Memoria</td>
+                <td class="tdPrimeraTabla">
+                    <select name="memorias" id="memorias" class="select">
+                        <option value="mem1">8Gb(40€)</option>
+                        <option value="mem2">16Gb(80€)</option>
+                        <option value="mem3">32Gb(160€)</option>
+                        <option value="mem4">64Gb(320€)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdPrimeraTabla">Disco duro</td>
+                <td class="tdPrimeraTabla">
+                    <select name="discos" id="discos" class="select">
+                        <option value="disco1">HDD 1Tb(32€)</option>
+                        <option value="disco2">SSD 1Tb(100€)</option>
+                        <option value="disco3">HDD 2Tb(54€)</option>
+                        <option value="disco4">SSD 2Tb(300€)</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td class="tdPrimeraTabla">Tarjeta Gráfica</td>
+                <td class="tdPrimeraTabla">
+                    <select name="tarjeta" id="tarjeta" class="select">
+                        <option value="tarjeta1">Ninguna(0€)</option>
+                        <option value="tarjeta2">MSI GeForce RTX 2060 VENTUS GP OC 6GB GDDR6(300€)</option>
+                        <option value="tarjeta3">MSI Radeon RX 6800 XT GAMING Z TRIO 16GB GDDR6(800€)</option>
+                        <option value="tarjeta4">PNY GeForce GTX 1660 SUPER Dual Fan 6GB GDDR6(350€)</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+        <br/>
+        <table class="segundaTabla">
+            <tr>
+                <td>
+                    <input type="submit" value="Enviar" name="enviar" id="enviar"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+    
+</body>
+</html>

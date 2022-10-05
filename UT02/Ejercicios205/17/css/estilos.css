@@ -1,0 +1,23 @@
+h1 {
+    text-align: center;
+}
+
+.tdPrimeraTabla {
+    border: 1px solid black;
+    width: 200px;
+    padding: 8px;
+}
+
+.primeraTabla {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+.segundaTabla {
+    margin: 0 auto;
+}
+
+.select {
+    width: 300px;
+}

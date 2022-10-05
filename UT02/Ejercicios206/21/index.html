@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 2.21</title>
+</head>
+<body>
+    <form action="php/valores.php" method="post">
+        <label for="valores">Número de valores: </label>
+        <input type="number" name="valores" id="valores">
+        <br/><br/>
+        <label for="funciones">Funciones: </label>
+        <select name="funciones" id="funciones">
+            <option value="minimo">Mínimo</option>
+            <option value="maximo">Máximo</option>
+            <option value="suma">Suma</option>
+            <option value="media">media</option>
+        </select>
+        <br/><br/>
+        <input type="submit" value="enviar" name="enviar"/>
+    </form>
+</body>
+</html>
