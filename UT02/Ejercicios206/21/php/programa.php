@@ -35,6 +35,17 @@
 
             case 'minimo':
                 $i = 0;
+                $j = $$var;
+                while($i<=$$var) {
+                    if($$var<$j) {
+                        $j = $numValores;
+                    }
+                    $i++;
+                }
+                echo $j;
+                break;
+            case 'maximo':
+                $i = 0;
                 $j = 0;
                 while($i<=$numValores) {
                     if($numValores>$j) {
@@ -44,7 +55,28 @@
                 }
                 echo $j;
                 break;
-
+            case 'suma':
+                $i = 0;
+                $j = 0;
+                while($i<=$numValores) {
+                    if($numValores>$j) {
+                        $j = $numValores;
+                    }
+                    $i++;
+                }
+                echo $j;
+                break;
+            case 'media':
+                $i = 0;
+                $j = 0;
+                while($i<=$numValores) {
+                    if($numValores>$j) {
+                        $j = $numValores;
+                    }
+                    $i++;
+                }
+                echo $j;
+                break;
         }
 
     ?>

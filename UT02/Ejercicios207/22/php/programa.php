@@ -3,7 +3,10 @@
     $sumaCaras = 0;
     if(!isset($_REQUEST['enviar'])) {
         header("Location: ../index.html");
-    }    
+    } else {
+        $nombre = $_REQUEST['nombre'];
+        $jugada = $_REQUEST['jugada'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,16 +23,8 @@
     <title>Ejercicio 2.22</title>
 </head>
 <body>
-    <?php
-        if(isset($_REQUEST['enviar'])) {
-            $nombre = $_REQUEST['nombre'];
-            $dado1 = $_REQUEST['dado1'];
-            $dado2 = $_REQUEST['dado2'];
-        }
-    ?>
     <p>Suerte, <?php echo $nombre; ?></p>
     <?php
-        $jugada = $dado1 + $dado2;
         echo "<p>Jugada: $jugada</p>";
 
         $caraDado1 = rand(1,6);

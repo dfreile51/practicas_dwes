@@ -21,26 +21,31 @@
 </head>
 <body>
     <?php
-        if(isset($_REQUEST['enviar'])) {
+    //para los checkbox hay poner isset porq es verdero o falso
             $tamanoPizza = $_REQUEST['tamanoPizza'];
             $basePizza = $_REQUEST['basePizza'];
-            $salsaPizza =$_REQUEST['salsaPizza'];
-            $ingredientesPizza = $_REQUEST['ingredientesPizza'];
-    ?>
+            $salsaPizza =isset($_REQUEST['salsaPizza']);
+            $pollo = isset($_REQUEST['pollo']);
+            $bacon = isset($_REQUEST['bacon']);
+            $jamon = isset($_REQUEST['jamon']);
+            $cebolla = isset($_REQUEST['cebolla']);
+            $aceitunas = isset($_REQUEST['aceitunas']);
+            $pimiento = isset($_REQUEST['pimineto']);
 
+    ?>
     <?php
         switch($tamanoPizza){
             case 'mini':
                 $tamano = "Mini(2,95€)";
-                $precioTamano = 2.95;
+                $precioTamano += 2.95;
                 break;
             case 'media':
                 $tamano = "Media(4,95€)";
-                $precioTamano = 4.95;
+                $precioTamano += 4.95;
                 break;
             case 'maxi':
                 $tamano = "Maxi(8,95€)";
-                $precioTamano = 8.95;
+                $precioTamano += 8.95;
                 break;
         }
         
@@ -73,32 +78,29 @@
                 $precioSalsa = 0;
         }
 
-        switch($ingredientesPizza) {
-            case 'pollo':
-                $ingredientes = "Pollo(0,55€)";
-                $precioIngredientes += 0.55;
-                break;
-            case 'bacon':
-                $ingredientes = "Bacon(0,75€)";
-                $precioIngredientes += 0.75;
-                break;
-            case 'jamon':
-                $ingredientes = "Jamon(0,95€)";
-                $precioIngredientes += 0.95;
-                break;
-            case 'cebolla':
-                $ingredientes = "Cebolla(0,45€)";
-                $precioIngredientes += 0.45;
-                break;
-            case 'aceitunas':
-                $ingredientes = "Aceitunas(0,55€)";
-                $precioIngredientes += 0.55;
-                break;
-            case 'Pimiento':
-                $ingredientes = "Aceitunas(0,55€)";
-                $precioIngredientes += 0.55;
-                break;
-
+        if(isset($_REQUEST['pollo'])) {
+            $ingredientes = $ingredientes."Pollo";
+            $precioIngredientes = $precioIngredientes + 0.55;
+        }
+        if(isset($_REQUEST['bacon'])) {
+            $ingredientes = $ingredientes."Bacon";
+            $precioIngredientes = $precioIngredientes + 0.75;
+        }
+        if(isset($_REQUEST['jamon'])) {
+            $ingredientes = $ingredientes."Jamón";
+            $precioIngredientes = $precioIngredientes + 0.95;
+        }
+        if(isset($_REQUEST['cebolla'])) {
+            $ingredientes = $ingredientes."Cebolla";
+            $precioIngredientes = $precioIngredientes + 0.45;
+        }
+        if(isset($_REQUEST['aceitunas'])) {
+            $ingredientes = $ingredientes."Aceitunas";
+            $precioIngredientes = $precioIngredientes + 0.55;
+        }
+        if(isset($_REQUEST['pimiento'])) {
+            $ingredientes = $ingredientes."Pimiento";
+            $precioIngredientes = $precioIngredientes + 0.65;
         }
         
         /*
@@ -143,11 +145,5 @@
             <td><?php echo $totalPrecio?></td>
         </tr>
     </table>
-
-    <?php
-        } else {
-            echo "Error no se ha recibido ningún dato.";
-        }
-    ?>
 </body>
 </html>
