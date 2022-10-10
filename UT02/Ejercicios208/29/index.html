@@ -7,6 +7,19 @@
     <title>Ejercicio 2.29</title>
 </head>
 <body>
-    
+    <form action="php/programa.php" method="post">
+        <h1>Operaciones</h1>
+        <label for="numero1">Elige la cantidad de valores </label>
+        <input type="number" name="numero1" id="numero1" min="1">
+        <br/><br/>
+        <select name='operacion'>
+            <option value='minimo'>Minimo</option>
+            <option value='maximo'>Maximo</option>
+            <option value='suma'>Suma </option>
+            <option value='media'>Media</option>
+        </select>
+        <br/><br/>
+        <input type='submit' value='Enviar' name='enviar' id='enviar'>
+    </form>
 </body>
 </html>

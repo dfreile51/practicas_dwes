@@ -11,7 +11,7 @@
     <?php
         for($i=0;$i<=10;$i++) {
             echo "
-                    <label for='alumnno$i'>Alumno $i: </label>
+                    <label for='alumno$i'>Alumno $i: </label>
                     <input type='text' name='alumno[$i]' id='alumno$i'/>
                     <br/><br/>
                 ";

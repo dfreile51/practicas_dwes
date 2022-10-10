@@ -51,12 +51,12 @@
             "apellido" => "Garcia",
             "curso" => "BACH2",
         );
-        /*
+       
         echo "<pre>";
             print_r($alumnos);
         echo "</pre>";
-        */
-
+        
+        /*
         echo "<table>";
         echo "<tr>";
         echo "<th>Nombre</th>";
@@ -74,6 +74,7 @@
         }
         
         echo "</table>";
+        */
     ?>
 </body>
 </html>

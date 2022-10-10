@@ -10,9 +10,11 @@
     <form action="php/programa.php" method="post">
         <?php
             for($i=1;$i<=10;$i++) {
-                echo "<label for='articulo$i'>Artículo $i</label><br/>";
-                echo "<input type='text' name='articulo$i' id='articulo$i' placeholder='Nombre del artículo'/><br/>";
-                echo "<input type='number' name='precio$i' id='precio$i' placeholder='Precio del artículo'/><br/>";
+                echo "
+                        <label for='articulo$i'>Artículo $i: </label><br/>
+                        <input type='text' name='articulo' id='articulo' placeholder='Nombre del artículo'/><br/>
+                        <input type='number' name='precio' id='precio' placeholder='Precio del artículo'/><br/>
+                    ";
             }
         ?>
         <br/>

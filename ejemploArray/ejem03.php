@@ -26,7 +26,7 @@
             echo "<pre>";
             print_r($alumnos);
             echo "</pre>";
-
+            /*
             foreach($alumnos as $clase) {
                 foreach($clase as $alumno) {
                     if($alumno['nombre'] == "Maria" && $alumno['apellido'] == "Gómez") {
@@ -34,6 +34,7 @@
                     }
                 }
             }
+            */
     ?>
 </body>
 </html>
