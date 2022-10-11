@@ -14,6 +14,7 @@
     if (isset($_REQUEST['enviar'])){
         $numValores = $_REQUEST ['numero1'];
         $operacion = $_REQUEST ['operacion'];
+        
         for ($i=0; $i<$numValores; $i++){
             echo "
             <label for='n$i'>Valor $i: </label>

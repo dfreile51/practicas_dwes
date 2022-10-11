@@ -19,38 +19,46 @@
         $ordenar = $_REQUEST['ordenar'];
         $orden = $_REQUEST['orden'];
 
-        $productos = array(
-            "nombre" => $articulos,
-            "precio" => $precios
-        );
+        $productos = array();
+
+        for($i=0;$i<count($articulos);$i++) {
+            $nomArti = $articulos[$i];
+            $precioArt = $precios[$i];
+            $productos[$nomArti] = $precioArt;
+        }
 
         switch($ordenar) {
             case 'Nombre':
-                sort($articulos);
+                if($orden == "Ascendente") {
+                    ksort($productos);
+                } else {
+                    krsort($productos);
+                }
                 break;
             case 'Precio':
-                sort($precios);
+                if($orden == "Ascendente") {
+                    asort($productos);
+                } else {
+                    arsort($productos);
+                }
                 break;
         }
 
         echo "<table>";
+        echo "<tr>";
+        echo "<th>Nombre articulo</th>";
+        echo "<th>Precio</th>";
+        echo "</tr>";
         
-        foreach($productos as $producto) {
+        foreach($productos as $articulo=>$precio) {
             echo "<tr>";
-            foreach($producto as $valor) {
-                echo "<td>$valor</td>";
-            }
+            echo "<td>$articulo</td>";
+            echo "<td>$precio</td>";
             echo "</tr>";
         }
         
         echo "</table>";
         
-        /*
-        echo "<pre>";
-        print_r($productos);
-        echo "</pre>";
-
-        */
     ?>
     
 </body>

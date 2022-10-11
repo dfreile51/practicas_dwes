@@ -9,11 +9,12 @@
 <body>
     <form action="php/programa.php" method="post">
         <?php
-            for($i=1;$i<=10;$i++) {
+        //empezar contador a 0 porque los arrays empiezan en 0
+            for($i=0;$i<=10;$i++) {
                 echo "
                         <label for='articulo$i'>Artículo $i: </label><br/>
-                        <input type='text' name='articulo' id='articulo' placeholder='Nombre del artículo'/><br/>
-                        <input type='number' name='precio' id='precio' placeholder='Precio del artículo'/><br/>
+                        <input type='text' name='articulo[$i]' id='articulo$i' placeholder='Nombre del artículo'/><br/>
+                        <input type='number' name='precio[$i]' id='precio$i' placeholder='Precio del artículo'/><br/>
                     ";
             }
         ?>
@@ -24,7 +25,7 @@
             <option>Precio</option>
         </select>
         <br/><br/>
-        <label for="orden">Orden: </label>
+        <label for="orden">Tipo de orden: </label>
         <select name="orden" id="orden">
             <option>Ascendente</option>
             <option>Descendente</option>

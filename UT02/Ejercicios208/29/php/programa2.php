@@ -13,6 +13,7 @@
     if (isset($_REQUEST['enviar'])){
         $operacion = $_REQUEST ['operacion'];
         $valores = $_REQUEST ['n'];
+
         foreach ($valores as $valor) {
             echo "<p>$valor</p>";
         }
@@ -30,6 +31,7 @@
                 max($valores);
                 echo "<p>El máximo es $max</p>";
                 break; 
+
             case 'suma':
                 $suma = $valores[0];
                 array_sum($valores);
@@ -40,7 +42,7 @@
                 $suma = array_sum($valores);
                 $total_numeros = count($valores);
                 $media = $suma/$total_numeros;
-                echo "la media es: $media";
+                echo "La media es: $media";
                 break;
 
             default:
