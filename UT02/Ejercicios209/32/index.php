@@ -9,17 +9,22 @@
 <body>
     <form action="php/programa.php" method="post">
     <?php
-        for($i=0;$i<9;$i++) {
+        for($i=0;$i<=9;$i++) {
             echo "<label for='alumno$i'>Alumno $i</label>";
-            echo "<input type='text' name='alumno[$i]' id='nombre' placeholder='Nombre del alumno'/>";
-            echo "<br/>";
-            echo "<input type='text' name='alumno[$i]' id='nombre' placeholder='Nombre del alumno'/>";
-            echo "<br/>";
-            echo "<input type='text' name='alumno[$i]' id='nombre' placeholder='Nombre del alumno'/>";
-            echo "<br/>";
+            echo "<br/><br/>";
+            echo "<input type='text' name='nombre[$i]' id='nombre$i' placeholder='Nombre del alumno'/>";
+            echo "<br/><br/>";
+            echo "<input type='text' name='apellido[$i]' id='apellido$i' placeholder='Apellido del alumno'/>";
+            echo "<br/><br/>";
+            echo "<input type='text' name='curso[$i]' id='curso$i' placeholder='Curso del alumno'/>";
+            echo "<br/><br/>";
+            echo "<input type='number' name='edad[$i]' id='edad$i' placeholder='Edad del alumno'/>";
+            echo "<br/><br/>";
+            echo "<input type='text' name='localidad[$i]' id='localidad$i' placeholder='Localidad del alumno'/>";
+            echo "<br/><br/>";
         }
     ?>
-
+    <input type="submit" value="Enviar" name="enviar" id="enviar"/>
 
     </form>
 </body>
