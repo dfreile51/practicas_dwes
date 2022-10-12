@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="../css/estilos.css">
-    <title>Ejercicio 2.32</title>
+    <title>Ejercicio 2.33</title>
 </head>
 <body>
     <?php
@@ -21,9 +21,14 @@
         $localidades = $_REQUEST['localidad'];
 
         function compara ($x, $y) {
-            if ($x['nombre'] == $y['nombre'])
-                return 0;
-            elseif ($x['nombre'] < $y['nombre'])
+            if ($x["nombre"] == $y["nombre"])
+                if ($x["apellido"] == $y["apellido"])
+                    return 0;
+                elseif ($x["apellido"] < $y["apellido"])
+                    return -1;
+                else
+                    return 1;
+            elseif ($x["nombre"] < $y["nombre"])
                 return -1;
             else
                 return 1;

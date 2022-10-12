@@ -1,3 +1,8 @@
+<?php
+    if(!isset($_REQUEST['enviar'])) {
+        header("Location: ../index.php");
+    }    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,9 +12,12 @@
     <title>Ejercicio 2.32</title>
 </head>
 <body>
-    <form action="php/programa.php" method="post">
     <?php
-        for($i=0;$i<=9;$i++) {
+        $numAlum = intval($_REQUEST['numAlum']);
+    ?>
+    <form action="programa.php" method="post">
+    <?php
+        for($i=0;$i<=$numAlum;$i++) {
             echo "<label for='alumno$i'>Alumno $i</label>";
             echo "<br/><br/>";
             echo "<input type='text' name='nombre[$i]' id='nombre$i' placeholder='Nombre del alumno'/>";
