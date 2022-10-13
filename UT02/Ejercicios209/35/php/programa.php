@@ -31,8 +31,9 @@
                 "localidad"=>$localidades[$i]
             );
         }
+
+        array_multisort($alumnos, SORT_ASC, SORT_NUMERIC, $cursos, $apellidos, $nombres);
         
-        $alumno = current($alumnos);
         echo "<h2>Ordenado Ascendente</h2>";
         echo "<table>";
         echo "<tr>";
@@ -42,19 +43,28 @@
         echo "<th>Edad</th>";
         echo "<th>Localidad</th>";
         echo "</tr>";
-        foreach($alumnos as $alumno) {
+        
+        echo "<tr>";
+        echo "<td>".pos($nombres)."</td>";
+        echo "<td>".pos($apellidos)."</td>";
+        echo "<td>".pos($cursos)."</td>";
+        echo "<td>".pos($edades)."</td>";
+        echo "<td>".pos($localidades)."</td>";
+        echo "</tr>";
 
+        for($i=0;$i<count($nombres);$i++) {
             echo "<tr>";
-                foreach ($alumno as $valor) {
-                    echo "<td>$valor</td>";
-                }
+            echo "<td>".next($nombres)."</td>";
+            echo "<td>".next($apellidos)."</td>";
+            echo "<td>".next($cursos)."</td>";
+            echo "<td>".next($edades)."</td>";
+            echo "<td>".next($localidades)."</td>";
             echo "</tr>";
-
         }
         
         echo "</table>";
 
-        $alumno = next($alumnos);
+        $alumno = end($alumnos);
         echo "<h2>Ordenado Descente</h2>";
         echo "<table>";
         echo "<tr>";
@@ -64,14 +74,23 @@
         echo "<th>Edad</th>";
         echo "<th>Localidad</th>";
         echo "</tr>";
-        foreach($alumnos as $alumno) {
+        
+        echo "<tr>";
+        echo "<td>".end($nombres)."</td>";
+        echo "<td>".end($apellidos)."</td>";
+        echo "<td>".end($cursos)."</td>";
+        echo "<td>".end($edades)."</td>";
+        echo "<td>".end($localidades)."</td>";
+        echo "</tr>";
 
+        for($i=0;$i<count($nombres);$i++) {
             echo "<tr>";
-                foreach ($alumno as $valor) {
-                    echo "<td>$valor</td>";
-                }
+            echo "<td>".prev($nombres)."</td>";
+            echo "<td>".prev($apellidos)."</td>";
+            echo "<td>".prev($cursos)."</td>";
+            echo "<td>".prev($edades)."</td>";
+            echo "<td>".prev($localidades)."</td>";
             echo "</tr>";
-
         }
         
         echo "</table>";

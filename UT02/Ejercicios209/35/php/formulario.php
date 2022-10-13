@@ -17,8 +17,9 @@
     ?>
     <form action="programa.php" method="post">
     <?php
+        $j=1;
         for($i=0;$i<$numAlum;$i++) {
-            echo "<label for='alumno$i'>Alumno $i</label>";
+            echo "<label for='alumno$i'>Alumno ".$j+$i."</label>";
             echo "<br/><br/>";
             echo "<input type='text' name='nombre[$i]' id='nombre$i' placeholder='Nombre del alumno'/>";
             echo "<br/><br/>";
