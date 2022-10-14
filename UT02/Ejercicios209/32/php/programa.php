@@ -32,7 +32,7 @@
         $alumnos = array();
         // Recorremos el array y guardamos cada input como array
         for($i=0;$i<count($nombres);$i++) {
-            $alumnos[$i] = array(
+            $alumnos[] = array(
                 "nombre"=>$nombres[$i],
                 "apellido"=>$apellidos[$i],
                 "curso"=>$cursos[$i],

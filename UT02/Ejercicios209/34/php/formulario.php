@@ -1,6 +1,6 @@
 <?php
     if(!isset($_REQUEST['enviar'])) {
-        header("Location: ../index.php");
+        header("Location: ../index.html");
     }    
 ?>
 <!DOCTYPE html>

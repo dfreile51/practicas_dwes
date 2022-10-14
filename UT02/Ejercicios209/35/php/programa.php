@@ -1,6 +1,6 @@
 <?php
     if(!isset($_REQUEST['enviar'])) {
-        header("Location: ../index.php");
+        header("Location: ../index.html");
     }    
 ?>
 <!DOCTYPE html>
@@ -32,7 +32,25 @@
             );
         }
 
-        array_multisort($alumnos, SORT_ASC, SORT_NUMERIC, $cursos, $apellidos, $nombres);
+        echo "<h2>De final a principio</h2>";
+        $alumno = end($alumnos);
+        while($alumno) {
+            echo "<pre>";
+            print_r($alumno);
+            echo "</pre>";
+            $alumno = prev($alumnos);
+        }
+
+        echo "<h2>De principio a final</h2>";
+        $alumno = reset($alumnos);
+        while($alumno) {
+            echo "<pre>";
+            print_r($alumno);
+            echo "</pre>";
+            $alumno = next($alumnos);
+        }
+
+        /*array_multisort($cursos, $apellidos, $nombres, $alumnos);
         
         echo "<h2>Ordenado Ascendente</h2>";
         echo "<table>";
@@ -94,6 +112,7 @@
         }
         
         echo "</table>";
+        */
         /*
         echo "<h2>Ordenado</h2>";
         echo "<table>";

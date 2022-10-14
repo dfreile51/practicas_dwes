@@ -1,6 +1,6 @@
 <?php
     if(!isset($_REQUEST['enviar'])) {
-        header("Location: ../index.php");
+        header("Location: ../index.html");
     }    
 ?>
 <!DOCTYPE html>
@@ -39,7 +39,7 @@
         print_r($alumnos);
         echo "</pre>";
 
-        array_multisort($alumnos, SORT_ASC, SORT_NUMERIC, $cursos, $apellidos, $nombres);
+        array_multisort($cursos, $apellidos, $nombres, $alumnos);
 
         echo "<h2>Ordenado</h2>";
         echo "<pre>";
