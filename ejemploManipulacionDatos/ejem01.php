@@ -37,15 +37,51 @@
 
         echo "</table>"; */
 
-        $nombre = "diego";
+        /* $nombre = "diego";
         $nombreMayus = strtoupper($nombre);
         if(strtoupper($nombre) == "diego") {
             echo "Login correcto $nombreMayus";
         } else {
             echo "Usuario incorrecto";
-        }
+        } */
 
         // echo "<p>$nombreMayus</p>";
+
+        $texto = "este es el texto que voy a dividir en subcadenas";
+
+        $cad1= "hello";
+        $cad2 = "hello";
+
+        $compara = strcmp($cad1, $cad2);
+        echo "<p>$compara</p>";
+        if (!strcasecmp($cad1, $cad2)) {
+            echo "<p>Iguales</p>";
+        } else {
+            echo "<p>Diferentes</p>";
+        }
+        /* $pal = substr($texto, -10, -2);
+        $cars = strlen($texto);
+        echo "<p>$pal</p>"; */
+        
+        /* if (in_array($buscar, $palabra)) { */
+            
+        /* } else {
+            echo "<p>$buscar <b>NO</b> aparece en el texto</p>";
+        } */
+
+        /* while ($palabra != "" && $palabra != "que") {
+            echo $palabra."<br/>";
+            $palabra = strtok(" ");
+        } */
+
+
+        /* echo "<pre>";
+        print_r($palabras);
+        echo "</pre>";
+
+        $texto2 = implode(" ", $palabras );
+        echo "<p>Texto: $texto</p>";
+        echo "<p>Texto2: $texto2</p>"; */
 
     ?>
 </body>

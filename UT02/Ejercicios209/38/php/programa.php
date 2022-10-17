@@ -17,7 +17,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 2.23</title>
+    <link rel="stylesheet" type="text/css" href="../css/estilos.css">
+    <title>Ejercicio 2.38</title>
 </head>
 <body>
     <?php
@@ -142,7 +143,7 @@
             <td><?php echo $base; ?></td>
             <td><?php echo $salsa; ?></td>
             <td><?php echo $ingredientes;?></td>
-            <td><?php echo $totalPrecio?></td>
+            <td><?php printf("%05.2f€",$totalPrecio)?></td>
         </tr>
     </table>
 </body>
