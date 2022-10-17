@@ -1,4 +1,5 @@
 <?php
+
     if(!isset($_REQUEST['enviar'])) {
         header("Location: ../index.html");
     }    
@@ -14,17 +15,34 @@
 <body>
     <?php
         $texto = $_REQUEST['texto'];
+        $vowels = array("a","e","i","o","u","A","E","I","O","U");
 
-        echo "<h2>Antes: </h2>";
+        echo "<h2>Texto en castellano: </h2>";
         echo "<p>$texto</p>";
 
-        echo "<h2>Después: </h2>";
-
+        
+        
         $palabras = explode(" ", $texto);
-        echo "<pre>";
+        /* echo "<pre>";
         print_r($palabras);
-        echo "</pre>";
-        $i = 0;
+        echo "</pre>"; */
+        $textoFinal = "";
+        for($i=0;$i<count($palabras);$i++) {
+            $primerCaracter = substr($palabras[$i], 0, 1);
+            if(in_array($primerCaracter, $vowels)) {
+                $traducido = substr_replace($palabras[$i],'ay', strlen($palabras[$i]));
+            } else {
+                $traducido = substr_replace($palabras[$i],'ay', strlen($palabras[$i]));
+            }
+
+            $textoFinal .= $traducido." ";
+        }
+        
+        echo "<h2>Texto en ping-latin: </h2>";
+        echo "<p>$textoFinal</p>"
+        
+
+        // echo "<p>".implode(" ", $textoFinal)."</p>"
         
         /* $palabra = strtok($texto, " ");
         while ($palabra != "") {

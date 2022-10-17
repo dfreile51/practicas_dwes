@@ -47,7 +47,7 @@
 
         // echo "<p>$nombreMayus</p>";
 
-        $texto = "este es el texto que voy a dividir en subcadenas";
+        /* $texto = "este es el texto que voy a dividir en subcadenas";
 
         $cad1= "hello";
         $cad2 = "hello";
@@ -58,7 +58,7 @@
             echo "<p>Iguales</p>";
         } else {
             echo "<p>Diferentes</p>";
-        }
+        } */
         /* $pal = substr($texto, -10, -2);
         $cars = strlen($texto);
         echo "<p>$pal</p>"; */
@@ -82,6 +82,24 @@
         $texto2 = implode(" ", $palabras );
         echo "<p>Texto: $texto</p>";
         echo "<p>Texto2: $texto2</p>"; */
+
+
+        $var = 'ABCDEFGH:/MNRPQR/';
+        echo "Original: $var<hr />\n";
+
+        /* These two examples replace all of $var with 'bob'. */
+        echo substr_replace($var, 'bob', 0) . "<br />\n";
+        echo substr_replace($var, 'bob', 0, strlen($var)) . "<br />\n";
+
+        /* Insert 'bob' right at the beginning of $var. */
+        echo substr_replace($var, 'bob', 0, 0) . "<br />\n";
+
+        /* These next two replace 'MNRPQR' in $var with 'bob'. */
+        echo substr_replace($var, 'bob', 10, -1) . "<br />\n";
+        echo substr_replace($var, 'bob', -7, -1) . "<br />\n";
+
+        /* Delete 'MNRPQR' from $var. */
+        echo substr_replace($var, '', 10, -1) . "<br />\n";
 
     ?>
 </body>
