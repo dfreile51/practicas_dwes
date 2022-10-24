@@ -28,7 +28,16 @@
         return $minimo;
     }
 
-    function recorrido () {
-        $recorrido = ma
+    function recorrido ($nums = array()) {
+        $recorrido = maximo($nums) - minimo($nums);
+        return $recorrido;
     }
+
+    /* function desviacion () {
+
+    } */
+
+    /* function moda () {
+
+    } */
 ?>

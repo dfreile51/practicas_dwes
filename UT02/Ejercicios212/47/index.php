@@ -7,6 +7,21 @@
     <title>Ejercicio 2.47</title>
 </head>
 <body>
-    
+    <?php
+        $numeros = array( 23,45,5,78,12,34 );
+        include("php/funciones.php");
+
+        $suma = sumar($numeros);
+        $media = media($numeros);
+        $maximo = maximo($numeros);
+        $minimo = minimo($numeros);
+        $recorrido = recorrido($numeros);
+
+        echo "<p>La suma es: $suma</p>";
+        echo "<p>La media es: $media</p>";
+        echo "<p>El maximo es: $maximo</p>";
+        echo "<p>El minimo es: $minimo</p>";
+        echo "<p>El recorrido es: $recorrido</p>";
+    ?>
 </body>
 </html>
