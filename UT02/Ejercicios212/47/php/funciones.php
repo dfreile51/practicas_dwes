@@ -14,17 +14,22 @@
     }
 
     function maximo ($nums = array()) {
-        $maximo = 0;
-        foreach ($nums as $num => $valor) {
-            if($valor > $maximo) {
-                $maximo = $valor;
+        $maximo = $nums[0];
+        for($i=1;$i<count($nums);$i++) {
+            if($nums[$i] > $maximo) {
+                $maximo = $nums[$i];
             }
         }
         return $maximo;
     }
 
     function minimo ($nums = array()) {
-        $minimo = min($nums);
+        $minimo = $nums[0];
+        for($i=1;$i<count($nums);$i++) {
+            if($nums[$i] < $minimo) {
+                $minimo = $nums[$i];
+            }
+        }
         return $minimo;
     }
 
@@ -33,11 +38,19 @@
         return $recorrido;
     }
 
-    /* function desviacion () {
+    function desviacion ($nums = array()) {
+        $media = media($nums);
+        $parte1 = 0;
+        foreach($nums as $i => $valor) {
+            $parte1 += ($valor - $media)**2;
+        }
+        $parte2 = $parte1 / $i;
+        return sqrt($parte2);
+    }
 
-    } */
-
-    /* function moda () {
-
-    } */
+    function moda($nums = array()) {
+        $cuenta = array_count_values($nums);
+        arsort($cuenta);
+        echo key($cuenta);
+    }
 ?>

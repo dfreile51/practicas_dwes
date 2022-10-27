@@ -9,13 +9,15 @@
 <body>
     <?php
         $numeros = array( 23,45,5,78,12,34 );
-        include("php/funciones.php");
+        require_once('php/funciones.php');
 
         $suma = sumar($numeros);
         $media = media($numeros);
         $maximo = maximo($numeros);
         $minimo = minimo($numeros);
         $recorrido = recorrido($numeros);
+        $desviacion = desviacion($numeros);
+        // $moda = moda($numeros);
 
         echo "<p>La suma es: $suma</p>";
         echo "<p>La media es: $media</p>";

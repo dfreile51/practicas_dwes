@@ -62,15 +62,9 @@
             }
         }
 
-        function comprobarJugada ($num, $num2) {
-            if($num == $num2) {
-                echo "<p>Enhorabuna has ganado</p>";
-            } else {
-                echo "<p>Lo siento has perdido</p>";
-            }
-        }
+        include('funciones.php');
 
-        comprobarJugada($petalos, $sumaPetalos);
+        comprobarJugada($petalos, $sumaPetalos, $nombre);
     ?>
 </body>
 </html>
