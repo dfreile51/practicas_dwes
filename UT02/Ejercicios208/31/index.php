@@ -17,7 +17,7 @@
         $carta2 = "<img class='' src='' />";
         $carta3 = "<img class='' src='' />";
 
-        $cartas = arra();
+        $cartas = array();
 
         $cartas[0] = $carta1;
         $cartas[1] = $carta2;

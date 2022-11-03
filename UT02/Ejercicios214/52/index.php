@@ -19,7 +19,10 @@
 <body>
     <p><?php echo $mensaje; ?></p>
     <?php
-        echo "<img src='';
+        if(isset($_COOKIE['visitas'])) {
+            $imagen = rand(1,6);
+            echo "<img src='imgs/$imagen.jpg'; alt='$imagen'>";
+        }
     ?>
 </body>
 </html>
