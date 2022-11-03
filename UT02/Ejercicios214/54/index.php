@@ -18,16 +18,27 @@
     </style>
 </head>
 <body>
+    
     <?php
-        if($_SESSION['user'] == "invitado") {
+        if(isset($_REQUEST['login2'])) {
+            $usuario = $_REQUEST['usuario'];
+            $_SESSION['user'] = $usuario;
+        }
+
+        if((isset($_SESSION['user'])) && ($_SESSION['user'] != "invitado")) {
+            echo "<h1>Bienvenido, ".$_SESSION['user']."</h1>";
+            echo "<form action='#' method='post'>
+                    <input type='submit' value='Logout' name='logout' id='logout'/>
+                  </form>";
+        } else {
             echo "<h1>Bienvenido, ".$_SESSION['user']."</h1>";
             echo "<form action='php/login.php' method='post'>
                     <input type='submit' value='Login' name='login' id='login'/>
-                </form>";
-        } else {
-            $usuario = $_REQUEST['usuario'];
-            $_SESSION['user'] = $usuario;
-            echo "<h1>Bienvenido, ".$_SESSION['user']."</h1>";
+                  </form>";
+        }
+
+        if(isset($_REQUEST['logout'])) {
+            session_destroy();
         }
     ?>
     

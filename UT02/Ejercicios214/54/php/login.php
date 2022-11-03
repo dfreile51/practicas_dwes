@@ -9,8 +9,7 @@
 <body>
     <h1>Iniciar Sesión</h1>
     <?php
-        $login = $_REQUEST['login'];
-        if(isset($login)) {
+        if(isset($_REQUEST['login'])) {
             echo "<form action='../index.php' method='post'>
                     <label for='usuario'>Usuario: </label> <br/>
                     <input type='text' name='usuario' id='usuario'/>
@@ -20,6 +19,7 @@
                     <input type='submit' value='Login' name='login2' id='login2'/> 
                 </form>";
         }
+        
     ?>
     <br/>
     <a href="../index.php">Volver a inicio</a>

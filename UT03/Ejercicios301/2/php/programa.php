@@ -1,12 +1,21 @@
+<?php
+    if(!isset($_REQUEST['enviar'])) {
+        header("Location: ../index.html");
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conexión a una base de datos</title>
+    <title>Ejercicio 3.02</title>
 </head>
 <style>
+    h1 {
+        text-align: center;
+    }
+
     table {
         margin: 0 auto;
         border-collapse: collapse;
@@ -14,42 +23,36 @@
 
     th, td {
         border: 1px solid black;
-        padding: 8px;
     }
 </style>
 <body>
     <?php
+        $equipo = $_REQUEST['equipos'];
+
+        echo "<h1>Los jugadores del equipo: $equipo</h1>";
+
+        $con = mysqli_connect("localhost", "nba", "nba", "nba");
+        $sql = "SELECT nombre FROM jugadores WHERE nombre_equipo='$equipo'";
+        $result = mysqli_query($con, $sql);
+
         try {
-            $con = mysqli_connect("localhost", "laescuela", "laescuela", "laescuela");
-            // echo "<p>Conxeión establecida</p>";
-            $curso = "ESO1";
-            $sql = "SELECT * FROM alumnos WHERE curso='$curso'";
-            $result = mysqli_query($con, $sql);
             if(mysqli_num_rows($result)>0) {
                 echo "<table>";
                 echo "<tr>";
-                echo "<th>#</th>";
                 echo "<th>Nombre</th>";
-                echo "<th>Apellidos</th>";
-                echo "<th>Fecha Nacimiento</th>";
-                echo "<th>Ciudad</th>";
-                echo "<th>Telefono</th>";
-                echo "<th>Cursos</th>";
                 echo "</tr>";
-                while($alumno = mysqli_fetch_assoc($result)) {
+                while($jugador = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    foreach ($alumno as $valor) {
+                    foreach ($jugador as $valor) {
                         echo "<td>$valor</td>";
                     }
                     echo "</tr>";
                 }
                 echo "</table>";
             } else {
-                echo "<p>No hay ningun alumno en $curso</p>";
+                echo "<p>No hay ningún jugador en los $equipo</p>";
             }
-            
-            /*  operaciones sobre la base de datos */
-            mysqli_close($con);
+
         } catch(mysqli_sql_exception $e) {
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
         }
