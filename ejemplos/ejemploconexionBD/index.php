@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conexión a una base de datos</title>
 </head>
-<style>
+<!-- <style>
     table {
         margin: 0 auto;
         border-collapse: collapse;
@@ -16,10 +16,10 @@
         border: 1px solid black;
         padding: 8px;
     }
-</style>
+</style> -->
 <body>
     <?php
-        try {
+        /* try {
             $con = mysqli_connect("localhost", "laescuela", "laescuela", "laescuela");
             // echo "<p>Conxeión establecida</p>";
             $curso = "ESO1";
@@ -47,12 +47,23 @@
             } else {
                 echo "<p>No hay ningun alumno en $curso</p>";
             }
-            
-            /*  operaciones sobre la base de datos */
             mysqli_close($con);
         } catch(mysqli_sql_exception $e) {
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
+        } */
+
+        require_once("funciones/funciones.php");
+        $temporadas = obtenerTemporadas();
+        echo "<ul>";
+        foreach($temporadas as $valor) {
+            if(str_starts_with($valor, 0)) {
+                $valorMostrar = "20".$valor;
+            } else {
+                $valorMostrar = "19".$valor;
+            }
+            echo "<li>$valorMostrar ($valor)</li>";
         }
+        echo "</ul>";
     ?>
 </body>
 </html>

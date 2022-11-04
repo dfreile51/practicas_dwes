@@ -23,6 +23,7 @@
 
     th, td {
         border: 1px solid black;
+        padding: 4px;
     }
 </style>
 <body>
@@ -32,7 +33,7 @@
         echo "<h1>Los jugadores del equipo: $equipo</h1>";
 
         $con = mysqli_connect("localhost", "nba", "nba", "nba");
-        $sql = "SELECT nombre FROM jugadores WHERE nombre_equipo='$equipo'";
+        $sql = "SELECT nombre, nombre_equipo FROM jugadores WHERE nombre_equipo='$equipo'";
         $result = mysqli_query($con, $sql);
 
         try {
@@ -40,19 +41,19 @@
                 echo "<table>";
                 echo "<tr>";
                 echo "<th>Nombre</th>";
+                echo "<th>Nombre_equipo</th>";
                 echo "</tr>";
                 while($jugador = mysqli_fetch_assoc($result)) {
                     echo "<tr>";
-                    foreach ($jugador as $valor) {
-                        echo "<td>$valor</td>";
-                    }
+                        echo "<td>{$jugador['nombre']}</td>";
+                        echo "<td>{$jugador['nombre_equipo']}</td>";
                     echo "</tr>";
                 }
                 echo "</table>";
             } else {
                 echo "<p>No hay ningún jugador en los $equipo</p>";
             }
-
+            mysqli_close($con);
         } catch(mysqli_sql_exception $e) {
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
         }

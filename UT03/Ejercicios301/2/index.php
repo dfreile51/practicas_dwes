@@ -18,10 +18,8 @@
                 echo "<form action='php/programa.php' method='post'>";
                 echo "<label for='equipos'>Equipos: </label>";
                 echo "<select name='equipos' id='equipos'>";
-                while($equipo = mysqli_fetch_row($result)) {
-                    foreach($equipo as $valor) {
-                        echo "<option>$valor</option>";
-                    }
+                while($equipo = mysqli_fetch_assoc($result)) {
+                    echo "<option>{$equipo['nombre']}</option>";
                 }
                 echo "</select>";
                 echo "<br/><br/>";
@@ -30,6 +28,7 @@
             } else {
                 echo "<p>No hay ningún equipo</p>";
             }
+            mysqli_close($con);
         } catch(mysqli_sql_exception $e) {
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
         }
