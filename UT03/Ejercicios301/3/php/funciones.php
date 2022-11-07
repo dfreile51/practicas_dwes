@@ -27,6 +27,30 @@
         return $temporadas;
     }
 
+    function obtenerJugadores($estadistica, $temporadas,  $numJugadores = 10) {
+        $jugadores = false;
+        try {
+            $con = mysqli_connect(HOST, USER, PASS, BD);
+            $sql = "SELECT jugadores.nombre, jugadores.nombre_equipo, $estadistica
+                FROM jugadores, estadisticas
+                WHERE jugadores.codigo = estadisticas.jugador AND estadisticas.temporada = '$temporadas'
+                ORDER BY $estadistica DESC
+                LIMIT 0, $numJugadores";
+            $result = mysqli_query($con, $sql);
+            mysqli_close($con);
+            if($result && mysqli_num_rows($result)>0) {
+                $jugadores = array();
+                while($jugador = mysqli_fetch_assoc($result)) {
+                    $jugadores[] = $jugador;
+                }
+            }
+        } catch(mysqli_sql_exception $e) {
+            $jugadores = false;
+        }
+        return $jugadores;
+        
+    }
+
     // $temporadas = obtenerTemporadas();
 
     // Obtener puntos por temporada

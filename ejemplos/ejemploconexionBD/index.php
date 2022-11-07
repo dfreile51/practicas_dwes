@@ -52,7 +52,7 @@
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
         } */
 
-        require_once("funciones/funciones.php");
+        /* require_once("funciones/funciones.php");
         $temporadas = obtenerTemporadas();
         echo "<ul>";
         foreach($temporadas as $valor) {
@@ -63,7 +63,41 @@
             }
             echo "<li>$valorMostrar ($valor)</li>";
         }
-        echo "</ul>";
+        echo "</ul>"; */
+
+        define("HOST", "localhost");
+        define("USER", "nba");
+        define("PASS", "nba");
+        define("BD", "nba");
+
+        try {
+            $con = mysqli_connect(HOST, USER, PASS, BD);
+            $sql = "DELETE FROM equipos WHERE division='Spain'";
+            $result = mysqli_query($con, $sql);
+            if(mysqli_num_rows($result)>0) {
+                $eliminados = mysqli_affected_rows($con);
+                echo "<h2>Equipos eliminados: $eliminados</h2>";
+            } else {
+                echo "<h2>No se ha elimiado ningun equipo</h2>";
+            }
+            mysqli_close($con);
+        } catch(mysqli_sql_exception $e) {
+            echo "<p>Error de conexión: ".$e->getMessage()."</p>";
+        }
+
+        /* require_once("funciones/funciones.php");
+        $equipo = array(
+            'nombre' => 'Baloncesto Valencia',
+            'ciudad' => 'Valencia',
+            'conferecia' => 'norte',
+            'division' => 'Spain',
+        );
+        if(insertar($equipo)) {
+            echo "<h2>Equipo insertado correctamente</h2>";
+        } else {
+            echo "<h2>Equipo no insertado</h2>";
+        } */
+
     ?>
 </body>
 </html>

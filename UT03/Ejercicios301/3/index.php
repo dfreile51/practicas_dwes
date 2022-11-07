@@ -17,23 +17,32 @@
         echo "<label for='estadisticas'>Seleccione la estadística: </label>";
         echo "<br/>";
         echo "<select name='estadisticas' id='estadisticas'>";
-            echo "<option>Puntos</option>";
-            echo "<option>Rebotes</option>";
-            echo "<option>Asistencias</option>";
-            echo "<option>Tapones</option>";
+            echo "<option value='puntos_por_partido'>Puntos</option>";
+            echo "<option value='rebotes_por_partido'>Rebotes</option>";
+            echo "<option value='sistencias_por_partido'>Asistencias</option>";
+            echo "<option value='tapones_por_partido'>Tapones</option>";
         echo "</select>";
         echo "<br/><br/>";
         echo "<label for='temporadas'>Seleccione la temporada: </label>";
         echo "<br/>";
         echo "<select name='temporadas' id='temporadas'>";
+
+        $temporadasAMostrar = array();
+
         foreach($temporadas as $temporada) {
-            /* if(str_starts_with($temporada, 0)) {
-                $temporadaMostrar = "20".$temporada;
+            if(str_starts_with($temporada, 0)) {
+                $temporadasAMostrar[] = "20".$temporada;
             } else {
-                $temporadaMostrar = "19".$temporada;
-            } */
-            echo "<option>$temporada</option>";
+                $temporadasAMostrar[] = "19".$temporada;
+            }
         }
+
+        array_multisort($temporadasAMostrar, $temporadas);
+
+        foreach($temporadas as $i => $temporada) {
+            echo "<option value='$temporada'>{$temporadasAMostrar[$i]}</option>";
+        }
+
         echo "</select>";
         echo "<br/><br/>";
         echo "<label for='numJugadores'>Indique el número de jugadores a mostrar: </label>";

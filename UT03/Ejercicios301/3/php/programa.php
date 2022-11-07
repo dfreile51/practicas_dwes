@@ -27,11 +27,12 @@
     }
 </style>
 <body>
+    
     <?php
         require_once('funciones.php');
 
-        $estadisticas = $_REQUEST['estadisticas'];
-        $temporadas = $_REQUEST['temporadas'];
+        $estadistica = $_REQUEST['estadisticas'];
+        $temporada = $_REQUEST['temporadas'];
         $numJugadores = intval($_REQUEST['numJugadores']);
         /* $nombreJugador = "jugadores.nombre";
         $nombreEquipoJugador = "jugadores.nombre_equipo";
@@ -40,7 +41,7 @@
         $estadisticaTempo = "estadisticas.temporada"; */
 
         
-        switch($estadisticas) {
+        /* switch($estadisticas) {
             case 'Puntos':
                 $estadistica = 'puntos_por_partido';
                 break;
@@ -53,44 +54,32 @@
             case 'Asistencias':
                 $estadistica = 'asistencias_por_partido';
                 break;
-        }
+        } */
 
         echo "<h1>TOP $numJugadores</h1>";
-        echo "<h2>$estadisticas por partido ($temporadas)</h2>";
-
-        $con = mysqli_connect("localhost", "nba", "nba", "nba");
-        $sql = "SELECT jugadores.nombre, jugadores.nombre_equipo, $estadistica
-                FROM jugadores, estadisticas
-                WHERE jugadores.codigo = estadisticas.jugador AND estadisticas.temporada = '$temporadas'
-                ORDER BY $estadistica DESC
-                LIMIT 0, $numJugadores";
-        $result = mysqli_query($con, $sql);
-        mysqli_close($con);
-
-        try {
-            if(mysqli_num_rows($result)>0) {
-                echo "<table>";
+        echo "<h2>$estadistica por partido ($temporada)</h2>";
+        $jugadores = obtenerJugadores( $estadistica, $temporada, $numJugadores);
+        if(is_array($jugadores) && count($jugadores)>0) {
+            echo "<table>";
+            echo "<tr>";
+            echo "<th>Jugador</th>";
+            echo "<th>Equipo</th>";
+            echo "<th>$estadistica</th>";
+            echo "</tr>";
+            foreach($jugadores as $jugador) {
                 echo "<tr>";
-                echo "<th>Jugador</th>";
-                echo "<th>Equipo</th>";
-                echo "<th>$estadisticas</th>";
+                    echo "<td>{$jugador['nombre']}</td>";
+                    echo "<td>{$jugador['nombre_equipo']}</td>";
+                    echo "<td>{$jugador[$estadistica]}</td>";
                 echo "</tr>";
-                while($jugador = mysqli_fetch_assoc($result)) {
-                    echo "<tr>";
-                        echo "<td>{$jugador['nombre']}</td>";
-                        echo "<td>{$jugador['nombre_equipo']}</td>";
-                        echo "<td>{$jugador[$estadistica]}</td>";
-                    echo "</tr>";
-                }
-                echo "</table>";
-            } else {
-                echo "<p>No hay ningún jugador</p>";
             }
-            
-        } catch(mysqli_sql_exception $e) {
-            echo "<p>Error de conexión: ".$e->getMessage()."</p>";
+            echo "</table>";
+        } else {
+            echo "<p>No hay ningún jugador</p>";
         }
-        
+
+        echo "<br/>";
+        echo "<p><a href='../index.php'>Hacer otra consulta</a></p>";
     ?>
 </body>
 </html>
