@@ -10,6 +10,7 @@
     // obtener las temporadas
 
     function obtenerTemporadas() {
+        $temporadas = false;
         try {
             $con = mysqli_connect(HOST, USER, PASS, BD);
             $sql = "SELECT DISTINCT temporada FROM estadisticas";
@@ -47,8 +48,7 @@
         } catch(mysqli_sql_exception $e) {
             $jugadores = false;
         }
-        return $jugadores;
-        
+        return $jugadores; 
     }
 
     // $temporadas = obtenerTemporadas();

@@ -58,7 +58,7 @@
 
         echo "<h1>TOP $numJugadores</h1>";
         echo "<h2>$estadistica por partido ($temporada)</h2>";
-        $jugadores = obtenerJugadores( $estadistica, $temporada, $numJugadores);
+        $jugadores = obtenerJugadores($estadistica, $temporada, $numJugadores);
         if(is_array($jugadores) && count($jugadores)>0) {
             echo "<table>";
             echo "<tr>";
