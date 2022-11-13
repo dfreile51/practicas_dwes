@@ -44,5 +44,6 @@
             echo "<input type='submit' value='Enviar' id='enviar' name='enviar' />";
         echo "</form>";
     ?>
+    <p><a href="paso3.php">Volver al paso de atrás</a></p>
 </body>
 </html>

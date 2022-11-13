@@ -47,7 +47,7 @@
             $consultas = terminaPor($baseDatos, $baseDatos, $baseDatos, $tabla, $campo, $valor);
         }
 
-        /* if(is_array($consultas) && count($consultas)>0) { */
+        if(is_array($consultas) && count($consultas)>0) {
             echo "<table>";
             echo "<tr>";
             echo "<th>$campo</th>";
@@ -58,9 +58,9 @@
                 echo "</tr>";
             }
             echo "</table>";
-        /* } else { */
-            /* echo "<p>Error</p>"; */
-        /* } */
+        } else {
+            echo "<p>Resultado no disponible</p>";
+        }
         
         
 
@@ -88,5 +88,6 @@
             echo "<input type='submit' value='Enviar' id='enviar' name='enviar' />";
         echo "</form>"; */
     ?>
+    <p><a href="paso5.php">Volver al paso de atrás</a></p>
 </body>
 </html>

@@ -37,6 +37,8 @@
             echo "<br/><br/>";
             echo "<input type='submit' value='Enviar' id='enviar' name='enviar' />";
         echo "</form>";
+        echo "<p><a href='paso2.php'>Volver al paso de atrás</a></p>";
     ?>
+    
 </body>
 </html>
