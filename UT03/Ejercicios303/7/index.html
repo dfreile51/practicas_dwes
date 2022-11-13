@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilos.css">
+    <title>Ejercicio 3.07</title>
+</head>
+<body>
+    <h2>QUE OPERACION QUIERES REALIZAR</h2>
+    <br/>
+    <table>
+        <tr>
+            <td class="td-index">
+                <form action="formularios/crear.php" method="post">
+                    <input type="submit" value="Crear alumno" name="crear" id="crear" />
+                </form>
+            </td>
+            <td class="td-index">
+                <form action="formularios/modificar.php" method="post">
+                    <input type="submit" value="Modificar alumno" name="modificar" id="modificar" />
+                </form>
+            </td>
+            <td class="td-index">
+                <form action="formularios/eliminar.php" method="post">
+                    <input type="submit" value="Eliminar alumno" name="eliminar" id="eliminar" />
+                </form>
+            </td>
+            <td class="td-index">
+                <form action="formularios/consultar.php" method="post">
+                    <input type="submit" value="Consultar" name="consultar" id="consultar" />
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

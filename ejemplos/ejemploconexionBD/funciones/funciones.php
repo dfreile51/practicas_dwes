@@ -43,6 +43,7 @@
                 }
                 mysqli_close($con);
             } catch (mysqli_sql_exception $e) {
+                $insertado = false;
             }
             return $insertado;
         }
