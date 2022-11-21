@@ -20,11 +20,11 @@
 
         if(eliminar($id, "escuela")) {
             echo "<h2>ALUMNO ELIMINADO CORRECTAMENTE</h2>";
-            echo "<p><a href='../index.html'>Volver a inicio</a></p>";
         } else {
             echo "<h2>ALUMNO NO ELIMINADO</h2>";
-            echo "<p><a href='../index.html'>Volver a inicio</a></p>";
         }
+
+        echo "<p><a href='../index.html'>Volver a inicio</a></p>";
     ?>
 </body>
 </html>

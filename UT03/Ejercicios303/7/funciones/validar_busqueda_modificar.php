@@ -15,10 +15,11 @@
 <body>
     <?php
         $busqueda = $_REQUEST['busqueda'];
+        $campo = "apellidos";
 
         require_once('funciones.php');
 
-        $alumnoBuscado = alumnosPorNombreOApellidos($busqueda, $busqueda, "escuela");
+        $alumnoBuscado = obtenerAlumnos($campo, $busqueda);
 
         if(is_array($alumnoBuscado) && count($alumnoBuscado)>0) {
             echo "<h2>LISTADO DE TODOS LOS ALUMNOS</h2>";

@@ -16,7 +16,7 @@
     <?php
         require_once('../funciones/funciones.php');
 
-        $alumnos = obtenerAlumnos("escuela");
+        $alumnos = obtenerAlumnos();
 
         if(is_array($alumnos) && count($alumnos)>0){
             echo "<h2>LISTADO DE TODOS LOS ALUMNOS</h2>";
@@ -33,14 +33,18 @@
             echo "</tr>";
             foreach($alumnos as $alumno) {
                 echo "<tr>";
-                    echo "<td>{$alumno['id_alumno']}</td>";
+                    /* echo "<td>{$alumno['id_alumno']}</td>";
                     echo "<td>{$alumno['DNI']}</td>";
                     echo "<td>{$alumno['nombre']}</td>";
                     echo "<td>{$alumno['apellidos']}</td>";
                     echo "<td>{$alumno['fechaNacimiento']}</td>";
                     echo "<td>{$alumno['direccion']}</td>";
                     echo "<td>{$alumno['localidad']}</td>";
-                    echo "<td>{$alumno['telefono']}</td>";
+                    echo "<td>{$alumno['telefono']}</td>"; */
+                    foreach($alumno as $valor) {
+
+                        echo "<td>$valor</td>";
+                    }
                 echo "</tr>";
             }
             echo "</table>";

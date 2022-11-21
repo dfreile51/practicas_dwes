@@ -65,7 +65,7 @@
         }
         echo "</ul>"; */
 
-        define("HOST", "localhost");
+        /* define("HOST", "localhost");
         define("USER", "nba");
         define("PASS", "nba");
         define("BD", "nba");
@@ -83,7 +83,7 @@
             mysqli_close($con);
         } catch(mysqli_sql_exception $e) {
             echo "<p>Error de conexión: ".$e->getMessage()."</p>";
-        }
+        } */
 
         /* require_once("funciones/funciones.php");
         $equipo = array(
@@ -98,6 +98,70 @@
             echo "<h2>Equipo no insertado</h2>";
         } */
 
+        /* $alumnos = array(
+            array (
+                "DNI" => "789789789G",
+                "nombre" => "Diego",
+                "apellidos" => "Fernandez Fernandez",
+                "fechaNacimiento" => "1997-10-27",
+                "direccion" => "la inventada",
+                "localidad" => "Astorga",
+                "telefono" => "78978979"
+            ),
+        );
+
+        define("HOST","localhost");
+        define("USER","escuela");
+        define("PASS","escuela");
+        define("BD","escuela");
+
+        try {
+            $con = new mysqli(HOST,USER,PASS,BD);
+            $sql = "INSERT INTO alumnos(DNI, nombre, apellidos, fechaNacimiento, direccion, localidad, telefono) VALUES (?,?,?,?,?,?,?)";
+            $stmt = $con->prepare($sql);
+            $insertados = 0;
+            foreach($alumnos as $al) {
+                $stmt->bind_param("sssssss", $al['DNI'], $al['nombre'], $al['apellidos'], $al['fechaNacimiento'], $al['direccion'], $al['localidad'], $al['telefono']);
+                $stmt->execute();
+                $insertados += $con->affected_rows;
+            }
+            $stmt->close();
+            $con->close();
+            if($insertados>0) {
+                echo "<h2>Alumnos insertados: {$insertados}</h2>";
+            } else {
+                echo "<h2>No se han podido insertar los alumnos</h2>";
+            }
+        } catch(Exception $e) {
+            echo "<p>ERROR: {$e->getMessage()}</p>";
+        } */
+
+        define("HOST","localhost");
+        define("USER","escuela");
+        define("PASS","escuela");
+        define("BD","escuela");
+
+        try {
+            $con = new mysqli(HOST, "root", "", BD);
+            $sql = "
+                LOAD DATA LOCAL INFILE 'csv/escuela.csv' INTO TABLE alumnos
+                FIELDS TERMINATED BY ';'
+                OPTIONALLY ENCLOSED BY '\"'
+                LINES TERMINATED BY '\\r\n'
+                IGNORE 1 LINES
+                (DNI, nombre, apellidos, fechaNacimiento, direccion, localidad, telefono)
+            ";
+            $result = $con->query($sql);
+            if($result) {
+                $cambios = $con->affected_rows;
+                echo "<h2>Alumnos almacenados: {$cambios}</h2>";
+            } else {
+                echo "<h2>Ningún alumno almacenado</h2>";
+            }
+            $con->close();
+        } catch(Exception $e) {
+            echo "<p>ERROR: {$e->getMessage()}</p>";
+        }
     ?>
 </body>
 </html>

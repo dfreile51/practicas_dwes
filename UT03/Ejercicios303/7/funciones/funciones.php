@@ -4,6 +4,7 @@
     define("HOST","localhost");
     define("USER","escuela");
     define("PASS","escuela");
+    define("BD", "escuela");
 
     function insertar($bd,$tabla,$registro){
         $insertado = false;
@@ -42,11 +43,14 @@
         return $insertado;
     }
 
-    function obtenerAlumnos($bd) {
+    function obtenerAlumnos($campo="", $valor="") {
         $alumnos = false;
         try {
-            $con = mysqli_connect(HOST, USER, PASS, $bd);
-            $sql = "SELECT * FROM alumnos";
+            $con = mysqli_connect(HOST, USER, PASS, BD);
+            $sql = "SELECT * FROM alumnos WHERE 1";
+            if($campo!= "" && $valor != "") {
+                $sql .= " AND $campo='$valor'";
+            }
             $result = mysqli_query($con, $sql);
             mysqli_close($con);
             if(mysqli_num_rows($result)>0) {
@@ -80,7 +84,7 @@
         return $alumnos;
     }
 
-    function alumnosPorNombreOApellidos($nombre, $apellidos, $bd) {
+    /* function alumnosPorNombreOApellidos($nombre, $apellidos, $bd) {
         $alumnos = false;
         try {
             $con = mysqli_connect(HOST, USER, PASS, $bd);
@@ -97,7 +101,7 @@
             $alumnos = false;
         }
         return $alumnos;
-    }
+    } */
 
     function eliminar($id, $bd) {
         $eliminado = false;
