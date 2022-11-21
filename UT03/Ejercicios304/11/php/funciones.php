@@ -8,9 +8,9 @@
         $insertado = false;
         try {
             $con = mysqli_connect(HOST, PASS, USER, BD);
-            $sql = "INSERT INTO usuarios('user', 'pass') VALUES ('".$user."', '".$pass."')";
+            $sql = "INSERT INTO usuarios(user, pass) VALUES ('".$user."', '".$pass."')";
             $result = mysqli_query($con, $sql);
-            if($result && mysqli_num_rows($result)==1) {
+            if($result && mysqli_affected_rows($con)==1) {
                 $insertado = true;
             }
             mysqli_close($con);
