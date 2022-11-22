@@ -13,9 +13,13 @@
                 $_SESSION['usuario'] = $user;
                 $_SESSION['permiso'] = "usuario";
                 header('Location: ../index.php');
+            } else if(validarUserEditor($user, $passCifrada)) {
+                $_SESSION['usuario'] = $user;
+                $_SESSION['permiso'] = "editor";
+                header('Location: ../index.php');
             } else {
                 $_SESSION['usuario'] = $user;
-                $_SESSION['permiso'] = "invitado";
+                $_SESSION['permiso'] = "editor";
                 header('Location: ../index.php');
             }
         } else {

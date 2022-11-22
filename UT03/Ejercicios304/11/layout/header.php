@@ -1,10 +1,12 @@
 <header>
-    <h2>Foro de noticias</h2>
+    <h1>Foro de noticias</h1>
     <?php
         if($_SESSION['usuario'] == "invitado") {
-            echo "<a href='php/iniciar-sesion.php' class='iniciar-sesion'>Inciar sesion</a>";
+            echo "<a href='php/iniciar-sesion.php'>Inciar sesion</a>";
+            echo "<p>Bienvenido, {$_SESSION['usuario']}</p>";
         } else {
-            echo "<a href='php/cerrar-sesion.php' class='cerrar-sesion'>Cerrar sesion</a>";
+            echo "<a href='php/cerrar-sesion.php'>Cerrar sesion</a>";
+            echo "<p>Bienvenido, {$_SESSION['usuario']}</p>";
         }
     ?>
 </header>

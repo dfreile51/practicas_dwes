@@ -1,15 +1,18 @@
 header {
     background-color: lightgrey;
     padding: 20px;
-    font-size: 35px;
 }
 
-.iniciar-sesion {
-    font-size: 20px;
+td {
+    padding: 4px;
 }
 
-.cerrar-sesion {
-    font-size: 20px;
+.red2 {
+    color: rgb(255, 0, 0);
+}
+
+.blue2 {
+    color: rgb(0, 0, 255);
 }
 
 .red {
