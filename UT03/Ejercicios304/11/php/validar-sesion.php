@@ -9,8 +9,15 @@
         $passCifrada = hash("sha512", $pass);
 
         if(validarUser($user, $passCifrada)) {
-            $_SESSION['usuario'] = $user;
-            header('Location: programa.php');
+            if(validarUserUsuario($user, $passCifrada)) {
+                $_SESSION['usuario'] = $user;
+                $_SESSION['permiso'] = "usuario";
+                header('Location: ../index.php');
+            } else {
+                $_SESSION['usuario'] = $user;
+                $_SESSION['permiso'] = "invitado";
+                header('Location: ../index.php');
+            }
         } else {
             header('Location: error-sesion.php');
         }

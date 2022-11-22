@@ -1,4 +1,4 @@
-<?php
+<?php 
     session_start();
     if(!isset($_SESSION['usuario'])) {
         header('Location: ../index.php');
@@ -17,8 +17,8 @@
     <?php 
         include('../layout/headerResto.php');
     ?>
-    <h1>Registro</h1>
-    <form action="validar-registro.php" method="post">
+    <h1>Inicio de sesión</h1>
+    <form action="validar-sesion.php" method="post">
         <table>
             <tr>
                 <td colspan="2">
@@ -31,11 +31,12 @@
                 <td colspan="2">
                     <label for="pass">Contraseña:</label>
                     <br />
-                    <input type="text" name="pass" id="pass" />
+                    <input type="password" name="pass" id="pass" />
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Registrarse" id="registrarse" name="registrarse" /></td>
+                <td><input type="submit" value="Iniciar Sesión" id="iniciar-sesion" name="iniciar-sesion" /></td>
+                <td><a href="registro.php">Registro</a></td>
             </tr>
         </table>
     </form>

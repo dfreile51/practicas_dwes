@@ -1,0 +1,29 @@
+header {
+    background-color: lightgrey;
+    padding: 20px;
+    font-size: 35px;
+}
+
+.iniciar-sesion {
+    font-size: 20px;
+}
+
+.cerrar-sesion {
+    font-size: 20px;
+}
+
+.red {
+    background-color: rgb(255, 0, 0);
+}
+
+.blue {
+    background-color: rgb(0, 0, 255);
+}
+
+.times {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.arial {
+    font-family: Arial, Helvetica, sans-serif;
+}
