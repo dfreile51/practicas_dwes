@@ -24,42 +24,28 @@
         $arraynuevo = array();
         $arraynuevo2 = array();
 
-        foreach($productos as $producto) {
-            foreach($categorias as $categoria) {
-                if($producto->CategoryID == $categoria->CategoryID) {
-                    $arraynuevo[] = array("id" => $producto->CategoryID, "nombre" => $categoria->CategoryName);
-                }
-            }
+        foreach($categorias as $categoria) {
+            $arraynuevo[$categoria->CategoryID] = $categoria->CategoryName;
         }
 
-        foreach($productos as $producto) {
-            foreach($proveedores as $proveedor) {
-                if($producto->SupplierID == $proveedor->SupplierID) {
-                    $arraynuevo2[] = array("id" => $proveedor->SupplierID, "nombre" => $proveedor->CompanyName);
-                }
-            }
+        foreach($proveedores as $proveedor) {
+            $arraynuevo2[$proveedor->SupplierID] = $proveedor->CompanyName;
         }
-
-        /* echo "<pre>";
-        print_r($arraynuevo);
-        echo "</pre>"; */
 
         echo "<table>";
         echo "<tr>";
         echo "<th>#</th>";
         echo "<th>Productos</th>";
-        echo "<th>ID Categoria</th>";
         echo "<th>Categoria</th>";
         echo "<th>Proveedor</th>";
         echo "<th>Precio</th>";
         echo "</tr>";
         foreach($productos as $producto) {
             echo "<tr>";
-            echo "<th>{$producto->ProductID}</th>";
+            echo "<td>{$producto->ProductID}</td>";
             echo "<td>{$producto->ProductName}</td>";
-            echo "<td>{$producto->CategoryID}</td>";
-            echo "<td>{$arraynuevo['nombre']}</td>";
-            echo "<td>{$arraynuevo2['nombre']}</td>";
+            echo "<td>{$arraynuevo[$producto->CategoryID]}</td>";
+            echo "<td>{$arraynuevo2[$producto->SupplierID]}</td>";
             echo "<td>{$producto->UnitPrice}</td>";
             echo "</tr>";
         }

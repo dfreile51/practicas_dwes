@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+}
+h1 {
+    color: red;
+    text-align: center;
+}
+
+.productos {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+}
+
+.productos th {
+    background-color: lightblue;
+}
+
+.filtros {
+    margin: 0 auto;
+    width: 60%;
+    text-align: center;
+}
+
+.filtros th {
+    background-color: lightblue;
+}
+
+.filtros td {
+    background-color: lightblue;
+}
+
+.listado {
+    width: 400px;
+}
+
+td, th {
+    border: 1px solid black;
+}
+
+td {
+    padding: 4px;
+}
