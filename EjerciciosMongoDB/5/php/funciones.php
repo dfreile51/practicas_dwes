@@ -1,21 +1,6 @@
 <?php
-    require '../vendor/autoload.php';
+    require '/xampp/htdocs/DWES/dwes/EjerciciosMongoDB/vendor/autoload.php';
 
-    function obtenerIdProductos() {
-        $mongo = new MongoDB\Client("mongodb://localhost:27017");
-
-        $colProductos = $mongo->northwind->products;
-
-        $productos = $colProductos->find()->toArray();
-        $idProductos = array();
-
-        foreach($productos as $producto) {
-            $idProductos[] = $producto->ProductID;
-        }
-
-        return $idProductos;
-    }
-    
     function obtenerCategorias() {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
 
@@ -44,6 +29,21 @@
         }
 
         return $idProveedores;
+    }
+
+    function obtenerIdProductos() {
+        $mongo = new MongoDB\Client("mongodb://localhost:27017");
+
+        $colProductos = $mongo->northwind->products;
+
+        $productos = $colProductos->find()->toArray();
+        $idProductos = array();
+
+        foreach($productos as $producto) {
+            $idProductos[] = $producto->ProductID;
+        }
+
+        return $idProductos;
     }
 
     function obtenerProductos() {
@@ -83,31 +83,19 @@
         return $arrayProductos;
     }
 
-    function mostrarProductos($productos) {
-        echo "<table>";
-        echo "<tr>";
-        echo "<th>#</th>";
-        echo "<th>Productos</th>";
-        echo "<th>Categoria</th>";
-        echo "<th>Proveedor</th>";
-        echo "<th>Precio</th>";
-        echo "</tr>";
-        foreach($productos as $producto) {
-            echo "<tr>";
-            echo "<td>{$producto['idProducto']}</td>";
-            echo "<td>{$producto['nombreProducto']}</td>";
-            echo "<td>{$producto['nombreCategoria']}</td>";
-            echo "<td>{$producto['nombreProvee']}</td>";
-            echo "<td>{$producto['precio']}</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    }
-
     function insertar($array) {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
         $colProductos = $mongo->northwind->products;
         $res = $colProductos->insertOne($array);
         return $res->getInsertedCount();
+    }
+
+    function alerta($tipo, $mensaje) {
+        echo "
+        <div class='alert $tipo alert-dismissible fade show' role='alert'>
+            <button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='close'></button>
+            <strong>$mensaje</strong>
+        </div>
+        ";
     }
 ?>

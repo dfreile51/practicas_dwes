@@ -30,7 +30,7 @@
                         <option value="0">Todas</option>
                         <?php
                             foreach($categorias as $key => $categoria) {
-                                echo "<option value='$key' selected='selected'>$categoria</option>";
+                                echo "<option value='$key'>$categoria</option>";
                             }
                         ?>
                     </select>
@@ -40,7 +40,7 @@
                         <option value="0">Todos</option>
                         <?php
                             foreach($proveedores as $key => $proveedor) {
-                                echo "<option value='$key' selected='selected'>$proveedor</option>";
+                                echo "<option value='$key'>$proveedor</option>";
                             }
                         ?>
                     </select>
@@ -57,10 +57,10 @@
 
     <?php
         if(isset($_REQUEST['selec'])) {
-            $categoria = $_REQUEST['categoria'];
-            $proveedor = $_REQUEST['proveedor'];
-
-            $productos = obtenerProductos($categoria, $proveedor);
+            $categoriaSel = $_REQUEST['categoria'];
+            $proveedorSel = $_REQUEST['proveedor'];
+        
+            $productos = obtenerProductos($categoriaSel, $proveedorSel);
 
             mostrarProductos($productos);
         }

@@ -10,7 +10,7 @@
 <body>
     <h1>Ejercicio 1</h1>
     <?php
-        require 'vendor/autoload.php';
+        require '../vendor/autoload.php';
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
 
         $colProductos = $mongo->northwind->products;

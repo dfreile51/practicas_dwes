@@ -14,11 +14,11 @@
         $idCategorias = obtenerCategorias();
         $idProveedores = obtenerProveedores();
 
-        $ultimoId = array_pop($idProductos);
+        $ultimoId = intval(array_pop($idProductos));
 
-        $ultId = intval($ultimoId);
+ /*        $ultId = intval($ultimoId); */
 
-        $ultId += 1;
+        $ultimoId += 1;
     ?>
     <div class="contenedor">
         <table>
@@ -27,7 +27,7 @@
                     <td>
                         <label for="idProducto">Id del producto:</label>
                         <br/><br/>
-                        <input type="text" name="idProducto" id="idProducto" value="<?php echo $ultId?>" readonly/>
+                        <input type="text" name="idProducto" id="idProducto" value="<?php echo $ultimoId?>" readonly/>
                     </td>
                     <td>
                         <label for="nombre">Nombre del producto:</label>

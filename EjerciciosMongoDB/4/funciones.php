@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    require '../vendor/autoload.php';
 
     function obtenerCategorias() {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");

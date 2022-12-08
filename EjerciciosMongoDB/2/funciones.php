@@ -1,5 +1,5 @@
 <?php
-    require 'vendor/autoload.php';
+    require '../vendor/autoload.php';
 
     function obtenerProductos() {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
