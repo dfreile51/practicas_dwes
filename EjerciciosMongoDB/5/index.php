@@ -22,16 +22,28 @@
             if(isset($_REQUEST['mensaje'])) {
                 switch($_REQUEST['mensaje']) {
                     case "invalido":
-                        alerta("alert-dange", "Operación no permitida");
+                        alerta("alert-danger", "Operación no permitida");
                         break;
                     case "faltanDatos":
                         alerta("alert-danger", "Debe rellenar todos los campos");
                         break;
-                    case "insertError":
-                        alerta("alert-danger", "Error al insertar el articulo");
-                        break;
                     case "insertExito":
                         alerta("alert-success", "Producto insertado correctamente");
+                        break;
+                    case "insertError":
+                        alerta("alert-danger", "Error al insertar el producto");
+                        break;
+                    case "updateExito":
+                        alerta("alert-success", "Producto actualizado correctamente");
+                        break;
+                    case "updateError":
+                        alerta("alert-danger", "Error al actualizar el producto");
+                        break;
+                    case "deleteExito":
+                        alerta("alert-success", "Producto eliminado correctamente");
+                        break;
+                    case "deleteError":
+                        alerta("alert-danger", "Error al eliminar el producto");
                         break;
                 }
             }
@@ -58,15 +70,25 @@
                                 <?php
                                     $productos = obtenerProductos();
                                     foreach($productos as $producto) {
-                                        echo "<tr>";
-                                        echo "<td scope='row'>{$producto['idProducto']}</td>";
-                                        echo "<td>{$producto['nombreProducto']}</td>";
-                                        echo "<td>{$producto['nombreCategoria']}</td>";
-                                        echo "<td>{$producto['nombreProvee']}</td>";
-                                        echo "<td class='text-end'>{$producto['precio']}€</td>";
-                                        echo "<td class='text-end'><i class='bi bi-pencil-square text-success'></i></td>";
-                                        echo "<td><i class='bi bi-trash text-danger'></i></td>";
-                                        echo "</tr>";
+                                ?>
+                                    <tr>
+                                        <td scope='row'><?php echo $producto['idProducto']; ?></td>
+                                        <td><?php echo $producto['nombreProducto']; ?></td>
+                                        <td><?php echo $producto['nombreCategoria']; ?></td>
+                                        <td><?php echo $producto['nombreProvee']; ?></td>
+                                        <td class='text-end'><?php echo $producto['precio']."€"; ?></td>
+                                        <td class='text-end'>
+                                            <a href='controlador/editar.php?id=<?php echo $producto['id']; ?>'>
+                                                <i class='bi bi-pencil-square text-success'></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <a href='controlador/eliminar.php?id=<?php echo $producto['id']; ?>'>
+                                                <i class='bi bi-trash text-danger'></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php
                                     }
                                 ?>
                             </tbody>
@@ -90,7 +112,7 @@
                     <form class="p-4" action="controlador/insertar.php" method="post">
                         <div class="mb-3">
                             <label class="form-label">Id Producto</label>
-                            <input type="text" class="form-control" name="idProducto" value="<?php echo $ultimoId ?>" readonly/>
+                            <input type="text" class="form-control" name="idProducto" value="<?php echo $ultimoId; ?>" readonly/>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Nombre</label>

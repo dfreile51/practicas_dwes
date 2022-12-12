@@ -1,16 +1,17 @@
 <?php
     require_once '/xampp/htdocs/dwes/EjerciciosMongoDB/5/php/funciones.php';
 
-    if(!isset($_REQUEST['btnInsertar'])) {
+    $id = $_REQUEST['id'];
+
+    if(!isset($_REQUEST['btnActualizar'])) {
         header('Location: ../index.php?mensaje=invalido');
         exit();
     }
-    if(empty($_REQUEST['nombre']) || empty($_REQUEST['precio']) || empty($_REQUEST['cantidad']) || empty($_REQUEST['unidadesStock']) || empty($_REQUEST['unidadesOrder']) || empty($_REQUEST['reorder']) || empty(strval($_REQUEST['discon']))) {
-        header('Location: ../index.php?mensaje=faltanDatos');
+    if(!isset($id)) {
+        header('Location: ../index.php?mensaje=invalido');
         exit();
     }
     $producto = array(
-        'ProductID' => $_REQUEST['idProducto'], 
         'ProductName' => $_REQUEST['nombre'],
         'SupplierID' => $_REQUEST['proveedor'], 
         'CategoryID' => $_REQUEST['categoria'],
@@ -19,13 +20,13 @@
         'UnitsInStock' => $_REQUEST['unidadesStock'], 
         'UnitsOnOrder' => $_REQUEST['unidadesOrder'],
         'ReorderLevel' => $_REQUEST['reorder'], 
-        'Discontinued' => strval($_REQUEST['discon']),
+        'Discontinued' => $_REQUEST['discon'],
     );
-    if(insertar($producto)) {
-        header('Location: ../index.php?mensaje=insertExito');
+    if(actualizar($id, $producto)) {
+        header('Location: ../index.php?mensaje=updateExito');
         exit();
     } else {
-        header('Location: ../index.php?mensaje=insertError');
+        header('Location: ../index.php?mensaje=updateError');
         exit();
     }
 ?>

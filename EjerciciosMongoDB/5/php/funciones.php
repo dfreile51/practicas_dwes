@@ -1,5 +1,18 @@
 <?php
-    require '/xampp/htdocs/DWES/dwes/EjerciciosMongoDB/vendor/autoload.php';
+    require '/xampp/htdocs/dwes/EjerciciosMongoDB/vendor/autoload.php';
+
+    function obtenerProducto($id) {
+        $mongo = new MongoDB\Client("mongodb://localhost:27017");
+
+        $colProductos = $mongo->northwind->products;
+
+        $producto = $colProductos->findOne(
+            array(
+                '_id' => new MongoDB\BSON\ObjectId($id)
+            )
+        );
+        return $producto;
+    }
 
     function obtenerCategorias() {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
@@ -72,6 +85,7 @@
 
         foreach($productos as $producto) {
             $arrayProductos[] = array(
+                "id" => $producto->_id,
                 "idProducto" => $producto->ProductID,
                 "nombreProducto" => $producto->ProductName,
                 "nombreCategoria" => $arraynuevo[$producto->CategoryID],
@@ -81,6 +95,27 @@
         }
 
         return $arrayProductos;
+    }
+
+    function eliminar($id) {
+        $mongo = new MongoDB\Client("mongodb://localhost:27017");
+        $colProductos = $mongo->northwind->products;
+        $res = $colProductos->deleteOne(
+            array(
+                '_id' => new MongoDB\BSON\ObjectId($id)
+            )
+        );
+        return $res->getDeletedCount();
+    }
+
+    function actualizar($id, $array) {
+        $mongo = new MongoDB\Client("mongodb://localhost:27017");
+        $colProductos = $mongo->northwind->products;
+        $res = $colProductos->updateOne(
+            ['_id' => new MongoDB\BSON\ObjectId($id)],
+            ['$set' => $array]
+        );
+        return $res->getModifiedCount();
     }
 
     function insertar($array) {
