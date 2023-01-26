@@ -11,6 +11,14 @@
     <?php
         require 'funciones.php';
 
+        if(isset($_REQUEST['categoria']) || isset($_REQUEST['proveedor'])) {
+            $categoriaSel = $_REQUEST['categoria'];
+            $proveedorSel = $_REQUEST['proveedor'];
+        } else {
+            $categoriaSel = "0";
+            $proveedorSel = "0";
+        }
+
         $categorias = obtenerCategorias();
         $proveedores = obtenerProveedores();
 
@@ -26,44 +34,47 @@
             </tr>
             <tr>
                 <td>
-                    <select name="categoria" id="categoria" class="listado">
+                    <select name="categoria" id="categoria" class="listado" onChange="this.form.submit()">
                         <option value="0">Todas</option>
                         <?php
                             foreach($categorias as $key => $categoria) {
-                                echo "<option value='$key'>$categoria</option>";
+                                $opciones = "";
+                                if($key == $categoriaSel) {
+                                    $opciones = "selected=''";
+                                }
+                                echo "<option value='$key' $opciones>$categoria</option>";
                             }
                         ?>
                     </select>
                 </td>
                 <td>
-                    <select name="proveedor" id="proveedor" class="listado">
+                    <select name="proveedor" id="proveedor" class="listado" onChange="this.form.submit()">
                         <option value="0">Todos</option>
                         <?php
                             foreach($proveedores as $key => $proveedor) {
-                                echo "<option value='$key'>$proveedor</option>";
+                                $opciones = "";
+                                if($key == $proveedorSel) {
+                                    $opciones = "selected=''";
+                                }
+                                echo "<option value='$key' $opciones>$proveedor</option>";
                             }
                         ?>
                     </select>
                 </td>
             </tr>
-            <tr>
+            <!-- <tr>
                 <td colspan="2"> 
                     <input type="submit" value="Seleccionar" name="selec" id="selec">
                 </td>
-            </tr>
+            </tr> -->
         </form>
     </table>
     <hr/>
 
     <?php
-        if(isset($_REQUEST['selec'])) {
-            $categoriaSel = $_REQUEST['categoria'];
-            $proveedorSel = $_REQUEST['proveedor'];
-        
-            $productos = obtenerProductos($categoriaSel, $proveedorSel);
+        $productos = obtenerProductos($categoriaSel, $proveedorSel);
 
-            mostrarProductos($productos);
-        }
+        mostrarProductos($productos);
     ?>
 </body>
 </html>

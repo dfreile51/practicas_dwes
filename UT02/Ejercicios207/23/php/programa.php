@@ -6,7 +6,8 @@
     $tamano = "";
     $base = "";
     $salsa = "";
-    $ingredientes = " ";
+    $ingredientes = "";
+    $salto = "<br>";
     if(!isset($_REQUEST['enviar'])) {
         header("Location: ../index.html");
     }    
@@ -19,6 +20,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 2.23</title>
 </head>
+<style>
+    table {
+        margin: 0 auto;
+    }
+    td, th {
+        border: 1px solid black;
+        padding: 8px;
+    }
+</style>
 <body>
     <?php
     //para los checkbox hay poner isset porq es verdero o falso
@@ -79,51 +89,29 @@
         }
 
         if(isset($_REQUEST['pollo'])) {
-            $ingredientes = $ingredientes."Pollo";
+            $ingredientes .= "Pollo{$salto}";
             $precioIngredientes = $precioIngredientes + 0.55;
         }
         if(isset($_REQUEST['bacon'])) {
-            $ingredientes = $ingredientes."Bacon";
+            $ingredientes .= "Bacon{$salto}";
             $precioIngredientes = $precioIngredientes + 0.75;
         }
         if(isset($_REQUEST['jamon'])) {
-            $ingredientes = $ingredientes."Jamón";
+            $ingredientes .= "Jamón{$salto}";
             $precioIngredientes = $precioIngredientes + 0.95;
         }
         if(isset($_REQUEST['cebolla'])) {
-            $ingredientes = $ingredientes."Cebolla";
+            $ingredientes .= "Cebolla{$salto}";
             $precioIngredientes = $precioIngredientes + 0.45;
         }
         if(isset($_REQUEST['aceitunas'])) {
-            $ingredientes = $ingredientes."Aceitunas";
+            $ingredientes .= "Aceitunas{$salto}";
             $precioIngredientes = $precioIngredientes + 0.55;
         }
         if(isset($_REQUEST['pimiento'])) {
-            $ingredientes = $ingredientes."Pimiento";
+            $ingredientes .= "Pimiento{$salto}";
             $precioIngredientes = $precioIngredientes + 0.65;
         }
-        
-        /*
-        if(isset($pollo)) {
-            $ingredientes = "Pollo(0,55€)";
-            $precioIngredientes += 0.55;
-        } elseif(isset($bacon)) {
-            $ingredientes = "Bacon(0,75€)";
-            $precioIngredientes += 0.75;
-        } elseif(isset($jamon)) {
-            $ingredientes = "Jamón(0,95€)";
-            $precioIngredientes += 0.95;
-        } elseif(isset($cebolla)) {
-            $ingredientes = "Cebolla(0,45€)";
-            $precioIngredientes += 0.45;
-        } elseif($aceitunas) {
-            $ingredientes = "Aceitunas(0,55€)";
-            $precioIngredientes += 0.55;
-        } elseif($pimiento) {
-            $ingredientes = "Pimiento(0,65€)";
-            $precioIngredientes += 0.65;
-        }
-        */
 
         $totalPrecio = $precioTamano + $precioBase + $precioSalsa + $precioIngredientes;
     ?>
@@ -142,7 +130,7 @@
             <td><?php echo $base; ?></td>
             <td><?php echo $salsa; ?></td>
             <td><?php echo $ingredientes;?></td>
-            <td><?php echo $totalPrecio?></td>
+            <td><?php echo $totalPrecio; ?></td>
         </tr>
     </table>
 </body>

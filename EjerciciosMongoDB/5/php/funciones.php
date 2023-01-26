@@ -63,23 +63,10 @@
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
 
         $colProductos = $mongo->northwind->products;
-        $colCategorias = $mongo->northwind->categories;
-        $colProveedores = $mongo->northwind->suppliers;
-
-        $categorias = $colCategorias->find()->toArray();
         $productos = $colProductos->find()->toArray();
-        $proveedores = $colProveedores->find()->toArray();
 
-        $arraynuevo = array();
-        $arraynuevo2 = array();
-
-        foreach($categorias as $categoria) {
-            $arraynuevo[$categoria->CategoryID] = $categoria->CategoryName;
-        }
-
-        foreach($proveedores as $proveedor) {
-            $arraynuevo2[$proveedor->SupplierID] = $proveedor->CompanyName;
-        }
+        $arraynuevo = obtenerCategorias();
+        $arraynuevo2 = obtenerProveedores();
 
         $arrayProductos = array();
 

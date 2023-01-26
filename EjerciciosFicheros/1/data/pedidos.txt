@@ -1,0 +1,8 @@
+fecha       usuario   tamaño            base            salsa               ingredientes    precioBase
+2022-12-15 	 diego 	 Media(4,95€) 	 Crujiente(1€) 	 Barbacoa(0,95€) 	 Jamón 	            7.85 
+2022-12-15 	 diego 	 Media(4,95€) 	 Crujiente(1€) 	 Barbacoa(0,95€) 	 BaconJamón 	    8.6 
+2022-12-15 	 diego 	 Media(4,95€) 	 Crujiente(1€) 	 Barbacoa(0,95€) 	 Bacon,Jamón, 	    8.6 
+2022-12-15 	 diego 	 Media(4,95€) 	 Crujiente(1€) 	 Barbacoa(0,95€) 	 Bacon,Jamón,Cebolla, 	 9.05 
+2022-12-15 	 diego 	 Media(4,95€) 	 Rellena(2€) 	 Barbacoa(0,95€) 	 Bacon,Jamón,Cebolla,Aceitunas, 	 17.55 
+2022-12-15 	 sergio 	 Maxi(8,95€) 	 Rellena(2€) 	 Barbacoa(0,95€) 	 Pollo,Bacon,Jamón, 	 21.1 
+2022-12-15 	 sergio 	 Maxi(8,95€) 	 Rellena(2€) 	 Barbacoa(0,95€) 	 Pollo,Bacon,Jamón,Cebolla,Aceitunas, 	 22.1 

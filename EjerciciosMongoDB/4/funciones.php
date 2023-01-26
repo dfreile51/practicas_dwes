@@ -31,46 +31,57 @@
         return $idProveedores;
     }
 
-    function obtenerProductos($categoria, $proveedor) {
+    function obtenerProductos($categoria = "0", $proveedor = "0") {
         $mongo = new MongoDB\Client("mongodb://localhost:27017");
 
         $man = new MongoDB\Driver\Manager("mongodb://localhost:27017");
-        if($categoria == 0 && $proveedor == 0) {
-            $filter = [];
-        } 
 
-        if($categoria != 0 && $proveedor == 0) {
-            $filter = ['CategoryID' => strval($categoria)];
-        }
+        $filter = [];
 
-        if($categoria == 0 && $proveedor != 0) {
-            $filter = ['SupplierID' => strval($proveedor)];
+        if($categoria != "0") {
+            $filter["CategoryID"] = $categoria;
         }
+        if($proveedor != "0") {
+            $filter["SupplierID"] = $proveedor;
+        }
+        // if($categoria == 0 && $proveedor == 0) {
+        //     $filter = [];
+        // } 
 
-        if($categoria != 0 && $proveedor != 0) {
-            $filter = ['CategoryID' => strval($categoria), 'SupplierID' => strval($proveedor)];
-        }
+        // if($categoria != 0 && $proveedor == 0) {
+        //     $filter = ['CategoryID' => strval($categoria)];
+        // }
+
+        // if($categoria == 0 && $proveedor != 0) {
+        //     $filter = ['SupplierID' => strval($proveedor)];
+        // }
+
+        // if($categoria != 0 && $proveedor != 0) {
+        //     $filter = ['CategoryID' => strval($categoria), 'SupplierID' => strval($proveedor)];
+        // }
 
         $options = ['sort' => ['ProductName'=>1]];
         $query = new MongoDB\Driver\Query($filter, $options);
         $productos = $man->executeQuery('northwind.products', $query);
 
-        $colProveedores = $mongo->northwind->suppliers;
-        $colCategorias = $mongo->northwind->categories;
+        // $colProveedores = $mongo->northwind->suppliers;
+        // $colCategorias = $mongo->northwind->categories;
 
-        $categorias = $colCategorias->find()->toArray();
-        $proveedores = $colProveedores->find()->toArray();
+        // $categorias = $colCategorias->find()->toArray();
+        // $proveedores = $colProveedores->find()->toArray();
 
-        $arrayCategorias = array();
-        $arrayProveedores = array();
+        // $arrayCategorias = array();
+        // $arrayProveedores = array();
 
-        foreach($categorias as $categoria) {
-            $arrayCategorias[$categoria->CategoryID] = $categoria->CategoryName;
-        }
+        // foreach($categorias as $categoria) {
+        //     $arrayCategorias[$categoria->CategoryID] = $categoria->CategoryName;
+        // }
 
-        foreach($proveedores as $proveedor) {
-            $arrayProveedores[$proveedor->SupplierID] = $proveedor->CompanyName;
-        }
+        // foreach($proveedores as $proveedor) {
+        //     $arrayProveedores[$proveedor->SupplierID] = $proveedor->CompanyName;
+        // }
+        $arrayCategorias = obtenerCategorias();
+        $arrayProveedores = obtenerProveedores();
 
         $arrayProductos = array();
 
