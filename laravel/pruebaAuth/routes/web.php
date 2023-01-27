@@ -1,7 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,4 +14,10 @@ use App\Http\Controllers\MainController;
 |
 */
 
-Route::get('/', [MainController::class, 'inicio'])->name('inicio');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

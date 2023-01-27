@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Articulo;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\DB;
 
 class ArticuloController extends Controller
 {
@@ -16,7 +17,13 @@ class ArticuloController extends Controller
 
     public function index()
     {
+        /* $consulta = "SELECT * FROM  articulos";
+        $articulos = DB::select($consulta);
+        foreach($articulos as $articulo) {
+            echo "<p>{$articulo->nombre}: {$articulo->precio}</p>";
+        } */
         $articulos = Articulo::all();
+        // $articulos = Articulo::where('precio', '>', 20)->limit(1)->get();
         return view('articulos.lista')->with([
             'empresa' => 'Laratienda',
             'articulos' => $articulos,
