@@ -22,8 +22,11 @@ class ArticuloController extends Controller
         foreach($articulos as $articulo) {
             echo "<p>{$articulo->nombre}: {$articulo->precio}</p>";
         } */
-        $articulos = Articulo::all();
+        // $articulos = Articulo::all();
         // $articulos = Articulo::where('precio', '>', 20)->limit(1)->get();
+
+        $articulos = Articulo::where('nombre','like','a%')->orWhere();
+
         return view('articulos.lista')->with([
             'empresa' => 'Laratienda',
             'articulos' => $articulos,
